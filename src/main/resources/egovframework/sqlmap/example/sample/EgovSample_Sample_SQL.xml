@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <sqlMap namespace="Sample">
 
@@ -59,8 +59,12 @@
 	
 	<select id="sampleDAO.selectSampleList" parameterClass="searchVO" resultClass="egovMap">
 
-			SELECT
-				ID, NAME, DESCRIPTION, USE_YN, REG_USER
+			SELECT /* INDEX_DESC(SAMPLE pk_SAMPLE) */
+				ID, 
+				NAME, 
+				DESCRIPTION, 
+				USE_YN, 
+				REG_USER
 			FROM SAMPLE
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">

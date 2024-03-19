@@ -45,18 +45,24 @@
 	</delete>
 
 	<select id="selectSample" resultMap="sample">
-
+		<![CDATA[
 			SELECT
-				ID, NAME, DESCRIPTION, USE_YN, REG_USER
+				ID, 
+				NAME, 
+				DESCRIPTION, 
+				USE_YN, 
+				REG_USER
 			FROM SAMPLE
 			WHERE ID=#{id}
-
+		]]>
 	</select>
 
 	<select id="selectSampleList" parameterType="searchVO" resultType="egovMap">
-
-			SELECT
-				ID, NAME, DESCRIPTION, USE_YN, REG_USER
+			SELECT 
+				ID, NAME, 
+				DESCRIPTION, 
+				USE_YN, 
+				REG_USER
 			FROM SAMPLE
 			WHERE 1=1
 			<if test="searchKeyword != null and searchKeyword != ''">
